@@ -1,0 +1,39 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        
+#Commands for installing node js
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.10.0'
+          
+      - name: Install Dependencies
+        run: |
+          npm install
+      - name: Build
+        run: |
+          npm run build
+
+          
+# installing surge
+
+      - name: installing surge
+        run: npm install --global surge
+      
+      - name: deploy using surge
+        run: surge ./ expensetracker.surge.sh --token $ {{ secrets:SURGE_TOKEN }}
+        
+
