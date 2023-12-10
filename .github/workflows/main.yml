@@ -1,37 +1,3 @@
-# name: Build and Test
-
-# on:
-#   push:
-#     branches: [main]
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - name: Checkout Repository
-#         uses: actions/checkout@v2
-
-#       #Commands for installing node js
-
-#       - name: Set up Node.js
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: "20.10.0"
-
-#       - name: Install Dependencies
-#         run: npm install
-#       - name: Build
-#         run: npm run build
-
-#       # installing surge
-
-#       - name: installing surge
-#         run: npm install --global surge
-
-#       - name: deploy using surge
-#         run: surge ./ expense-tracker.surge.sh --token ${{ secrets.SURGE_TOKEN }}
-
 # This is a basic workflow to help you get started with Actions
 
 name: Deploy React App to Surge
@@ -42,8 +8,7 @@ on:
   push:
     branches: [main]
 
-# A workflow run is made up of one or more jobs that
-#can run sequentially or in parallel
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
@@ -53,15 +18,20 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
       # Install NodeJS
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20.10.0
 
-      # Build React App with Yarn
+      #Installing dependences
+      - name: Install Dependencies
+        run: npm install
+
+      # Build React App with npm
       - name: Build React App
         run: npm run build
 
