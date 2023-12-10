@@ -38,6 +38,8 @@ jobs:
       # Install Surge
       - name: Install Surge
         run: npm install --global surge
+      - name: Surge Login
+        run: surge login
 
       # Deploy Surge
       - name: Deploy React App to Surge
