@@ -34,9 +34,7 @@ jobs:
       # Build React App with npm
       - name: Build React App
         run: npm run build
-      #Running app
-      - name: running app
-        run: npm run dev
+
       # Install Surge
       - name: Install Surge
         run: npm install --global surge
@@ -45,6 +43,6 @@ jobs:
 
       # Deploy Surge
       - name: Deploy React App to Surge
-        run: surge ./ aqib-expense-tracker.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        run: surge ./dist aqib-expense-tracker.surge.sh --token ${{ secrets.SURGE_TOKEN }}
       - name: Debug Surge Token
         run: echo ${{ secrets.SURGE_TOKEN }}
