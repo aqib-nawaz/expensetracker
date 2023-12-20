@@ -9,7 +9,7 @@ function Balance({ transactions }) {
 				$
 				{transactions
 					.map((item) => item.amount)
-					.reduce((acc, amount) => (acc += amount), 0)
+					.reduce((acc, amount) => (acc += +amount), 0)
 				}
 			</h1>
 		</div>
