@@ -8,10 +8,13 @@ import AddTransactions from './components/AddTransactions';
 import IncomeExpense from './components/IncomeExpense';
 
 function App() {
+
+
   const dummyTransactions = [
     { id: 1, text: 'Flower', amount: -20 },
-
   ];
+
+
   const [allTranssction, setAllTransactions] = useState(dummyTransactions)
 
   const handleTransactionAdd = (data) => {
@@ -20,12 +23,14 @@ function App() {
     })
   }
 
+
+
   return (
     <>
       <Header />
       <main className='main-container'>
         <Balance transactions={allTranssction} />
-        <IncomeExpense />
+        <IncomeExpense transactions={allTranssction} />
         <TransactionHistory transactions={allTranssction} />
         <AddTransactions handleTransactionAdd={handleTransactionAdd} />
       </main>

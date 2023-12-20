@@ -1,10 +1,17 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
+import React from "react";
 
-const IncomeExpense = () => {
-	const totalIncome = 200;
-	const totalExpense = -200;
+const IncomeExpense = ({ transactions }) => {
+	const totalBalance = transactions.map((item) => item.amount);
+	const totalIncome = totalBalance.reduce(
+		(acc, item) => (item > 0 ? (acc += +item) : acc),
+		0
+	);
+	const totalExpense = totalBalance
+		.reduce((acc, item) => (item < 0 ? (acc += +item) : acc), 0)
+		.toString().split("-")[1];
 	return (
-		<div className='income-expense__contianer'>
+		<div className="income-expense__contianer">
 			<div className="income">
 				<h2>Income</h2>
 				<span>${totalIncome}</span>
@@ -15,7 +22,7 @@ const IncomeExpense = () => {
 				<span>${totalExpense}</span>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default IncomeExpense
+export default IncomeExpense;
