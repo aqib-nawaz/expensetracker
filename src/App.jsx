@@ -1,8 +1,10 @@
 import React from 'react';
-import Header from './components/header/Header';
-import Balance from './components/balance/Balance';
-import TransactionHistory from './components/transactionHistory/TransactionHistory';
-import AddTransactions from './components/addTransactions/AddTransactions';
+import './App.css'
+
+import Header from './components/Header';
+import Balance from './components/Balance';
+import TransactionHistory from './components/TransactionHistory';
+import AddTransactions from './components/AddTransactions';
 
 function App() {
 
