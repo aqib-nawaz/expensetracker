@@ -19,23 +19,25 @@ const AddTransactions = (props) => {
 	};
 
 	return (
-		<form onSubmit={addTransaction}>
-			<div>
+		<form onSubmit={addTransaction} className="AddTransaction">
+			<div className="form-controll">
 				<label htmlFor="desc">Description</label>
 				<input
 					type="text"
 					id="desc"
-					placeholder="enter desc"
+					placeholder="Enter desciption"
 					value={detail}
+					required
 					onChange={(e) => setDetail(e.target.value)}
 				/>
 			</div>
-			<div>
+			<div className="form-controll">
 				<label htmlFor="amount">Amount</label>
 				<input
 					type="number"
 					id="amount"
-					placeholder="enter amount"
+					required
+					placeholder="Enter amount"
 					value={amount}
 					onChange={(e) => setAmount(e.target.value)}
 				/>

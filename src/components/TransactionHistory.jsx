@@ -9,11 +9,11 @@ function TransactionHistory({ transactions }) {
 		} return `+$${amount}`
 	}
 	return (
-		<div>
+		<div className="transaction-history__container">
 			<h2>Transaction History</h2>
 			<ul>
 				{transactions.map((item) => (
-					<li key={item.id} className={item.amount < 0 ? "income" : "expense"}>
+					<li key={item.id} className={item.amount < 0 ? "expense-item" : "income-item"}>
 						{item.text} <span>{moneyFormat(item.amount)}</span>
 					</li>
 				))}

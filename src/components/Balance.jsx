@@ -3,7 +3,7 @@ import React from "react";
 
 function Balance({ transactions }) {
 	return (
-		<div>
+		<div className="balance-container">
 			<h2>Total Balance</h2>
 			<h1>
 				$

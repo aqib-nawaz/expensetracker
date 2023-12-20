@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Balance from './components/Balance';
 import TransactionHistory from './components/TransactionHistory';
 import AddTransactions from './components/AddTransactions';
+import IncomeExpense from './components/IncomeExpense';
 
 function App() {
   const dummyTransactions = [
@@ -22,9 +23,12 @@ function App() {
   return (
     <>
       <Header />
-      <Balance transactions={allTranssction} />
-      <TransactionHistory transactions={allTranssction} />
-      <AddTransactions handleTransactionAdd={handleTransactionAdd} />
+      <main className='main-container'>
+        <Balance transactions={allTranssction} />
+        <IncomeExpense />
+        <TransactionHistory transactions={allTranssction} />
+        <AddTransactions handleTransactionAdd={handleTransactionAdd} />
+      </main>
     </>
   )
 }
