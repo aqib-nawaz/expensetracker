@@ -15,7 +15,7 @@ function App() {
   ];
 
 
-  const [allTranssction, setAllTransactions] = useState(dummyTransactions)
+  const [allTransaction, setAllTransactions] = useState(dummyTransactions)
 
   const handleTransactionAdd = (data) => {
     setAllTransactions((prev) => {
@@ -29,9 +29,9 @@ function App() {
     <>
       <Header />
       <main className='main-container'>
-        <Balance transactions={allTranssction} />
-        <IncomeExpense transactions={allTranssction} />
-        <TransactionHistory transactions={allTranssction} />
+        <Balance transactions={allTransaction} />
+        <IncomeExpense transactions={allTransaction} />
+        <TransactionHistory transactions={allTransaction} />
         <AddTransactions handleTransactionAdd={handleTransactionAdd} />
       </main>
     </>

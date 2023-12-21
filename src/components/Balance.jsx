@@ -4,7 +4,7 @@ import React from "react";
 function Balance({ transactions }) {
 	return (
 		<div className="balance-container">
-			<h2>Total Balance</h2>
+			<h2>Your Balance</h2>
 			<h1>
 				$
 				{transactions
