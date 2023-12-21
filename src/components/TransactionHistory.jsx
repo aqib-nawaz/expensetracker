@@ -1,8 +1,9 @@
-/* eslint-disable react/prop-types */
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
-function TransactionHistory({ transactions }) {
+function TransactionHistory() {
 
+	const { transactions } = useContext(GlobalContext)
 	const moneyFormat = (amount) => {
 		if (amount < 0) {
 			return `-$${+amount.toString().split("-")[1]}`

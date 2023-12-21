@@ -1,7 +1,9 @@
-/* eslint-disable react/prop-types */
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
-function Balance({ transactions }) {
+function Balance() {
+
+	const { transactions } = useContext(GlobalContext)
 	return (
 		<div className="balance-container">
 			<h2>Your Balance</h2>

@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
-const AddTransactions = (props) => {
+const AddTransactions = () => {
 	const [detail, setDetail] = useState("");
 	const [amount, setAmount] = useState('');
+
+
+	const { handleTransactionAdd } = useContext(GlobalContext)
 
 	const addTransaction = (e) => {
 		e.preventDefault();
@@ -13,7 +17,7 @@ const AddTransactions = (props) => {
 			amount: amount,
 		}
 
-		props.handleTransactionAdd(transationObj);
+		handleTransactionAdd(transationObj);
 		setDetail('')
 		setAmount('')
 	};

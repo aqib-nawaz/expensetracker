@@ -1,7 +1,9 @@
-/* eslint-disable react/prop-types */
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
-const IncomeExpense = ({ transactions }) => {
+const IncomeExpense = () => {
+
+	const { transactions } = useContext(GlobalContext)
 	const totalBalance = transactions.map((item) => item.amount);
 	const totalIncome = totalBalance.reduce(
 		(acc, item) => (item > 0 ? (acc += +item) : acc),
