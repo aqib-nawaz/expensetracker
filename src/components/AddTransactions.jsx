@@ -18,6 +18,7 @@ const AddTransactions = () => {
 		}
 
 		handleTransactionAdd(transationObj);
+
 		setDetail('')
 		setAmount('')
 	};

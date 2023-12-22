@@ -4,14 +4,19 @@ import { GlobalContext } from "../context/GlobalState";
 const IncomeExpense = () => {
 
 	const { transactions } = useContext(GlobalContext)
+
 	const totalBalance = transactions.map((item) => item.amount);
 	const totalIncome = totalBalance.reduce(
 		(acc, item) => (item > 0 ? (acc += +item) : acc),
 		0
 	);
+
+
 	const totalExpense = totalBalance
 		.reduce((acc, item) => (item < 0 ? (acc += +item) : acc), 0)
 		.toString().split("-")[1];
+
+
 	return (
 		<div className="income-expense__contianer">
 			<div className="income">

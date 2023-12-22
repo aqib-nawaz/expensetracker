@@ -2,21 +2,33 @@
 import React, { createContext, useContext, useState } from "react";
 
 const initialState = {
-	transactions: [{ id: 1, text: 'Flower', amount: -20 }],
-	handleTransactionAdd: function (obj) {
-		console.log("obj", obj)
-		return this.transactions = [obj, ...this.transactions]
-	}
+	transactions: [],
+	handleTransactionAdd: () => { },
 };
 
 export const GlobalContext = createContext(initialState);
 export const ContextProvider = ({ children }) => {
 
-	const context = useContext(GlobalContext)
+
+	const initialState = [{ id: 21, details: "Flower", amount: 20 }]
+	const [allTransactions, setAllTransactions] = useState(initialState);
+
+
+	const handleTransactionAdd = (obj) => {
+		setAllTransactions((prev) => {
+			return [obj, ...prev];
+		});
+	};
+
 
 	return (
-		<GlobalContext.Provider value={context}>
+		<GlobalContext.Provider
+			value={{
+				transactions: allTransactions,
+				handleTransactionAdd: handleTransactionAdd,
+			}}
+		>
 			{children}
 		</GlobalContext.Provider>
-	)
+	);
 };

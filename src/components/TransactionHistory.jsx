@@ -4,11 +4,15 @@ import { GlobalContext } from "../context/GlobalState";
 function TransactionHistory() {
 
 	const { transactions } = useContext(GlobalContext)
+
+
 	const moneyFormat = (amount) => {
 		if (amount < 0) {
 			return `-$${+amount.toString().split("-")[1]}`
 		} return `+$${amount}`
 	}
+
+
 	return (
 		<div className="transaction-history__container">
 			<h2>Transaction History</h2>

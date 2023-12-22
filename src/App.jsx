@@ -11,7 +11,6 @@ import { ContextProvider } from './context/GlobalState';
 
 function App() {
 
-
   return (
     <ContextProvider>
       <Header />
