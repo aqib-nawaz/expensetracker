@@ -136,6 +136,21 @@
     font-weight: 400;
     margin-top: 4px;
     cursor: pointer;
+    position: relative;
+}
+
+.del {
+    position: absolute;
+    right: -18px;
+    top: 2.4px;
+    background-color: red;
+    padding: 5px 8px;
+    color: white;
+    display: none;
+}
+
+.transaction-history__container ul li:hover .del {
+    display: block;
 }
 
 .transaction-history__container ul li.expense-item {
