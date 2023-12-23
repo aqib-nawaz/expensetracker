@@ -6,13 +6,12 @@ import Balance from './components/Balance';
 import TransactionHistory from './components/TransactionHistory';
 import AddTransactions from './components/AddTransactions';
 import IncomeExpense from './components/IncomeExpense';
-import { ContextProvider } from './context/GlobalState';
 
 
 function App() {
 
   return (
-    <ContextProvider>
+    <React.Fragment>
       <Header />
       <main className='main-container'>
         <Balance />
@@ -20,7 +19,7 @@ function App() {
         <TransactionHistory />
         <AddTransactions />
       </main>
-    </ContextProvider>
+    </React.Fragment>
   )
 }
 

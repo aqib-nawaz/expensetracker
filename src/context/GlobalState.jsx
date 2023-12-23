@@ -1,31 +1,29 @@
 /* eslint-disable react/prop-types */
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useReducer, useState } from "react";
+import { AppReducer } from "./AppReducer";
 
 const initialState = {
 	transactions: [],
-	handleTransactionAdd: () => { },
-};
+	handleTransactionAdd: (item) => { },
+}
 
 export const GlobalContext = createContext(initialState);
+
 export const ContextProvider = ({ children }) => {
 
+	const [state, dispatch] = useReducer(AppReducer, initialState)
 
-	const initialState = [{ id: 21, details: "Flower", amount: 20 }]
-	const [allTransactions, setAllTransactions] = useState(initialState);
-
-
-	const handleTransactionAdd = (obj) => {
-		setAllTransactions((prev) => {
-			return [obj, ...prev];
-		});
+	const handleTransactionAdd = (transaction) => {
+		dispatch({ type: "ADD", payload: transaction });
 	};
 
 
+	console.log(state)
 	return (
 		<GlobalContext.Provider
 			value={{
-				transactions: allTransactions,
-				handleTransactionAdd: handleTransactionAdd,
+				transactions: state.transactions,
+				handleTransactionAdd,
 			}}
 		>
 			{children}
